@@ -1,0 +1,19 @@
+name: Deploy Dev.abirah.pk
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: install dependencies
+        run: |
+          composer install
+
