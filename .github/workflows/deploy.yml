@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Codeaa
         uses: actions/checkout@v2
       - name: Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@latest
+        uses: SamKirkland/FTP-Deploy-Action@main
         with:
           server: ${{ secrets.CPANEL_URL }}
           username: ${{ secrets.CPANEL_USERNAME }}
