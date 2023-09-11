@@ -17,8 +17,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CPANEL_URL }}
-          username: ${{ secrets.SSH_USERNAME }}  # You need to set up SSH keys or use a secret with your SSH password
-          password: ${{ secrets.SSH_PASSWORD }}  # Alternatively, you can use a password
+          username: ${{ secrets.CPANEL_USERNAME }}  # You need to set up SSH keys or use a secret with your SSH password
+          password: ${{ secrets.CPANEL_PASSWORD }}  # Alternatively, you can use a password
           script: |
             ls_result=$(ls)
 
