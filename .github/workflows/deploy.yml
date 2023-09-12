@@ -18,5 +18,7 @@ jobs:
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: whoami
+          script: |
+            whoami
+            ls -al
 
