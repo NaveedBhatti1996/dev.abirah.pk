@@ -17,6 +17,10 @@ jobs:
       - name: Echo Secret
         env:
           SECRET_USERNAME: ${{ secrets.USERNAME }}
+          SECRET_PASSWORD: ${{ secrets.PASSWORD }}
+          SECRET_HOST: ${{ secrets.HOST }}
         run: |
           echo "Secret Username: $SECRET_USERNAME"
+          echo "Secret Username: $SECRET_PASSWORD"
+          echo "Secret Username: $SECRET_HOST"
 
