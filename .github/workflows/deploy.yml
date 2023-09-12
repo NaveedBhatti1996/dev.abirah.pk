@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Check SSH Port
+        run: nc -zv ${{ secrets.HOST }} ${{ secrets.PORT }}
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.0
         with:
