@@ -14,10 +14,10 @@ jobs:
       - name: SSH into cPanel Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.CPANEL_URL }}
-          username: ${{ secrets.CPANEL_USERNAME }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          port: ${{ secrets.PORT }}
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          port: ${{secrets.PORT}}
           script: |
             whoami
             ls -al
