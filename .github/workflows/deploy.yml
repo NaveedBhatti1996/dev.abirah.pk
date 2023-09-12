@@ -17,11 +17,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.CPANEL_URL }}
-          username: ${{ secrets.CPANEL_USERNAME }}  # You need to set up SSH keys or use a secret with your SSH password
-          password: ${{ secrets.CPANEL_PASSWORD }}  # Alternatively, you can use a password
-          script: |
-            ls_result=$(ls)
-
-            echo "List of files and directories:"
-            echo "$ls_result"
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
 
