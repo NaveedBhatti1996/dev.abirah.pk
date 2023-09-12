@@ -14,13 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Echo Secret
-        env:
-          SECRET_USERNAME: ${{ secrets.USERNAME }}
-          SECRET_PASSWORD: ${{ secrets.PASSWORD }}
-          SECRET_HOST: ${{ secrets.HOST }}
-        run: |
-          echo "Secret Username: $SECRET_USERNAME"
-          echo "Secret Username: $SECRET_PASSWORD"
-          echo "Secret Username: $SECRET_HOST"
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
 
