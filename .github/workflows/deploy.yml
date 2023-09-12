@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Codeaa
-        uses: actions/checkout@v2
       - name: SSH into cPanel Server
         uses: appleboy/ssh-action@master
         with:
