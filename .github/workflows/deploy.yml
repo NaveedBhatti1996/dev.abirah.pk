@@ -5,16 +5,15 @@ on:
     branches:
       - "master"
 
-
 jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote commands using password
-        uses: appleboy/ssh-action@v1.0.0
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.5.6
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: whoami
+          ssh-private-key: ${{ secrets.KEY }}
+
+      - name: SSH into remote server
+        run: |
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i $SSH_PRIVATE_KEY_PATH ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.PORT }} "whoami"
